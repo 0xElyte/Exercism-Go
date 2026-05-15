@@ -43,7 +43,8 @@ func main() {
 
 	// Maps
 	var myMap map[string]uint8 = make(map[string]uint8)
-	fmt.Println(myMap["Person 1"])	// default value when trying to access an invalid key in the map
+	myMap["Person 1"] = 100
+	fmt.Println(myMap["Person 2"])	// default value when trying to access an invalid key in the map
 
 	var myMap2 = map[string]uint8{"Person 1":23, "Person 2":30}
 	fmt.Println(myMap2["Person 1"])
@@ -66,7 +67,39 @@ func main() {
 		fmt.Println("Data not found")
 	}
 
-	// Iteration
+	// Iteration (for arrays or "rangeed" types)
+	for name, age := range myMap {
+		fmt.Printf("Name: %v,\tValue: %v\n", name, age)
+	}
+
+	for i, v := range fixedSizeArray {
+		fmt.Printf("Index: %v, Value: %v\n", i, v)
+	}
+
+	// while loop in Go
+	var i uint = 0
+
+	for i <= 10 {
+		fmt.Println(i)
+		i++
+	}
+
+	for {
+		if (i > 11) {
+			break
+		}
+
+		fmt.Println(i)
+		i++
+	}
+
+	// for-loop
+	for i=0; i<5; i++ {			// for i := 0; i<5; i++ (for a non existing variable)
+		if i == 3 {
+			continue
+		}
+		fmt.Println(i)
+	}
 }
 
 func intDivision(numerator int, denominator int) (int, int, error) {
